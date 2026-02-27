@@ -1,0 +1,58 @@
+/* STACK */
+.stack-sec { 
+  padding: 8rem 0; 
+}
+
+.stack-cats { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 2.5rem; 
+}
+
+.stack-row { 
+  display: flex; 
+  align-items: flex-start; 
+  gap: 2.5rem; 
+}
+
+.stack-cat-lbl { 
+  font-family: 'Share Tech Mono', monospace; 
+  font-size: 0.65rem; 
+  letter-spacing: 0.18em; 
+  text-transform: uppercase; 
+  color: #7a6a94; 
+  width: 110px; 
+  flex-shrink: 0; 
+  padding-top: 0.5rem; 
+}
+
+.stack-badges { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: 0.65rem; 
+}
+
+.stack-badge { 
+  display: flex; 
+  align-items: center; 
+  gap: 0.55rem; 
+  padding: 0.5rem 0.9rem; 
+  border-radius: 2px; 
+  background: #0d0820; 
+  border: 1px solid rgba(255,77,166,0.18); 
+  font-size: 0.8rem; 
+  font-weight: 400; 
+  transition: all 0.25s; 
+  cursor: crosshair; 
+}
+
+.stack-badge:hover { 
+  border-color: rgba(255,170,112,0.5); 
+  color: #ffaa70; 
+  transform: translateY(-3px); 
+  box-shadow: 0 4px 20px rgba(255,107,91,0.1); 
+}
+
+@media(max-width:768px) { 
+  .stack-row{flex-direction:column;gap:0.75rem;} 
+}
