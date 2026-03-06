@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>dclarkdev &mdash; Technical Pioneer</title>
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/logos/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#0d0d1a" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -17,7 +23,7 @@
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
       <a href="#home" class="nav-logo">
-        <span class="bracket">&lt;</span>dclarkdev<span class="bracket">/&gt;</span>
+        <img src="/logos/logo-nav.svg" alt="dclarkdev" height="40" />
       </a>
       <div class="nav-links">
         <a href="#about">About</a>
@@ -26,7 +32,7 @@
         <a href="#clients">Clients</a>
         <a href="#contact" class="nav-cta">Let's Talk</a>
       </div>
-      <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navDrawer">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -227,7 +233,7 @@
 
       <div class="carousel-root" data-animate="up" data-delay="2">
         <button class="car-btn car-prev" id="carPrev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
-        <div class="car-viewport" id="carViewport">
+        <div class="car-viewport" id="carViewport" tabindex="0" role="region" aria-label="Project carousel">
           <div class="car-track" id="carTrack">
 
             <!-- Card 1: E-Commerce -->
@@ -531,7 +537,7 @@
       <div class="footer-top">
         <div class="footer-brand" data-animate="left">
           <a href="#home" class="nav-logo">
-            <span class="bracket">&lt;</span>dclarkdev<span class="bracket">/&gt;</span>
+            <img src="/logos/logo-nav.svg" alt="dclarkdev" height="40" />
           </a>
           <p>Technical Pioneer. Fractional CTO.<br />Building the future, one stack at a time.</p>
           <div class="socials">
