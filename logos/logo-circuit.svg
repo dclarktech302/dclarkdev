@@ -1,0 +1,62 @@
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="circuitGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6200;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glowGrad" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#ff6200;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Outer glow -->
+  <circle cx="100" cy="100" r="90" fill="url(#glowGrad)" opacity="0.5"/>
+
+  <!-- Circuit paths forming abstract D -->
+  <path d="M 50 60 L 50 140 M 50 100 L 70 100"
+        stroke="url(#circuitGrad)"
+        stroke-width="3"
+        stroke-linecap="round"/>
+
+  <path d="M 50 60 C 50 60 90 60 90 100 C 90 140 50 140 50 140"
+        stroke="url(#circuitGrad)"
+        stroke-width="3"
+        stroke-linecap="round"
+        fill="none"/>
+
+  <!-- Circuit paths forming abstract C -->
+  <path d="M 150 85 C 150 70 135 60 115 60 C 95 60 85 70 85 90 L 85 110 C 85 130 95 140 115 140 C 135 140 150 130 150 115"
+        stroke="url(#circuitGrad)"
+        stroke-width="3"
+        stroke-linecap="round"
+        fill="none"/>
+
+  <!-- Circuit nodes (connection points) -->
+  <circle cx="50" cy="60" r="4" fill="#ff6200">
+    <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="50" cy="140" r="4" fill="#8b5cf6">
+    <animate attributeName="r" values="4;6;4" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="115" cy="60" r="4" fill="#ff6200">
+    <animate attributeName="r" values="4;6;4" dur="2s" begin="1s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="115" cy="140" r="4" fill="#8b5cf6">
+    <animate attributeName="r" values="4;6;4" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Circuit board dots pattern -->
+  <circle cx="70" cy="80" r="2" fill="#ff6200" opacity="0.4"/>
+  <circle cx="130" cy="80" r="2" fill="#8b5cf6" opacity="0.4"/>
+  <circle cx="70" cy="120" r="2" fill="#8b5cf6" opacity="0.4"/>
+  <circle cx="130" cy="120" r="2" fill="#ff6200" opacity="0.4"/>
+
+  <!-- Connecting circuit lines -->
+  <line x1="70" y1="100" x2="85" y2="100" stroke="#ff6200" stroke-width="1.5" opacity="0.5"/>
+  <line x1="50" y1="100" x2="40" y2="100" stroke="#8b5cf6" stroke-width="1.5" opacity="0.5"/>
+  <line x1="150" y1="100" x2="160" y2="100" stroke="#ff6200" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Small chip-like element -->
+  <rect x="95" y="95" width="10" height="10" fill="url(#circuitGrad)" opacity="0.3" rx="1"/>
+</svg>

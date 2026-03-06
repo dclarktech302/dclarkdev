@@ -1,0 +1,15 @@
+{
+  "name": "dclarkdev - Technical Pioneer",
+  "short_name": "dclarkdev",
+  "description": "Fractional CTO & Fullstack Engineer. I architect and build the systems that scale your vision.",
+  "icons": [
+    {
+      "src": "/logos/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#0d0d1a",
+  "background_color": "#07070f",
+  "display": "standalone"
+}
