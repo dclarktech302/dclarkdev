@@ -248,6 +248,49 @@
       box-shadow: 0 4px 16px var(--orange-glow)
     }
 
+    /* LANGUAGE TOGGLE */
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border: 1px solid var(--primary);
+      border-radius: 8px;
+      background: var(--primary-dim);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary);
+      font-family: var(--font-display);
+      cursor: pointer;
+      transition: all .2s;
+      letter-spacing: 0.5px;
+      margin-right: 12px
+    }
+
+    .lang-toggle:hover {
+      background: var(--primary);
+      color: #000;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px var(--primary-glow)
+    }
+
+    .lang-icon {
+      font-size: 14px
+    }
+
+    .lang-separator {
+      color: var(--border-md);
+      margin: 0 2px
+    }
+
+    .lang-option {
+      transition: opacity .2s
+    }
+
+    .lang-option.inactive {
+      opacity: 0.4
+    }
+
     .hamburger {
       display: flex;
       flex-direction: column;
@@ -2336,13 +2379,19 @@
     <a href="#home" class="nav-logo">dclark<em>dev</em></a>
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#portfolio">Work</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#stack">Stack</a></li>
-        <li><a href="#local">Local</a></li>
+        <li><a href="#about" data-translate="nav_about">About</a></li>
+        <li><a href="#portfolio" data-translate="nav_work">Work</a></li>
+        <li><a href="#experience" data-translate="nav_experience">Experience</a></li>
+        <li><a href="#stack" data-translate="nav_stack">Stack</a></li>
+        <li><a href="#local" data-translate="nav_local">Local</a></li>
       </ul>
-      <a href="#contact" class="nav-btn modal-trigger">Let's Talk</a>
+      <button class="lang-toggle" id="langToggle" aria-label="Change language">
+        <span class="lang-icon">🌐</span>
+        <span class="lang-option" data-lang="en">EN</span>
+        <span class="lang-separator">|</span>
+        <span class="lang-option" data-lang="es">ES</span>
+      </button>
+      <a href="#contact" class="nav-btn modal-trigger" data-translate="nav_cta">Let's Talk</a>
       <button class="hamburger" id="hamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
