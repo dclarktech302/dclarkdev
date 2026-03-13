@@ -2,3 +2,15 @@
 Thumbs.db
 *.log
 .vercel
+
+# Development HTML files - not for production
+dclarkdev-merged.html
+dclarkdev-final.html
+index-old.html
+
+# Documentation files - keep in repo but won't affect deployment
+# These are useful for reference but don't consume resources:
+# COLOR_SCHEME_UPDATE.md
+# FAB_IMPLEMENTATION.md
+# LAYOUT_COMPARISON.md
+# MODAL_IMPLEMENTATION.md
