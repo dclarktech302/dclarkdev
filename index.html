@@ -3516,6 +3516,167 @@
     if (savedTheme && themes[savedTheme]) {
       applyTheme(savedTheme);
     }
+
+  // ============================================================
+  // BILINGUAL LANGUAGE SYSTEM
+  // ============================================================
+  const translations = {
+    en: {
+      // Navigation
+      nav_about: 'About',
+      nav_work: 'Work',
+      nav_experience: 'Experience',
+      nav_stack: 'Stack',
+      nav_local: 'Local',
+      nav_cta: "Let's Talk",
+
+      // Hero Section
+      hero_status: 'Available for new engagements',
+      hero_title_line2: 'Pioneer.',
+      hero_title_line3: 'Turning complexity into clarity.',
+      hero_subtitle: 'Enterprise-trained fullstack engineer & fractional CTO. 5 years at JPMorgan Chase building systems at scale, now helping startups move fast and Eastern Shore businesses compete. JPMC-level engineering, startup velocity.',
+
+      // Clients Section
+      clients_eyebrow: 'Trusted By',
+      clients_title_start: 'From Enterprise to',
+      clients_title_gradient: 'Main Street',
+      clients_subtitle: '5 years at JPMorgan Chase building production financial systems — now applying that expertise to startups and the local Sussex County community.',
+
+      enterprise_title: 'Enterprise Production Systems',
+      enterprise_desc: '5 years at JPMorgan Chase building production systems that never go down. Distributed architecture, rigorous security, code that serves millions daily — now available to your business.',
+
+      startup_title: 'Startup Velocity',
+      startup_desc: "I've launched multiple startups from concept to production MVP in under 12 weeks. Real velocity, zero corners cut — the kind of speed that keeps investors happy and users engaged.",
+
+      local_title: 'Eastern Shore Local',
+      local_desc: 'Helping Eastern Shore businesses compete with enterprise-grade websites, booking systems, and e-commerce. Big-company quality, Shore pricing, real local support.',
+
+      // About Section
+      about_eyebrow: 'About',
+      about_title_start: 'The engineer who',
+      about_title_gradient: 'thinks like a founder.',
+      about_bio_p1: "I'm David Clark — a <strong>full-stack engineer and fractional CTO based on Delaware's Eastern Shore</strong>. I started in local engineering programs, spent <strong>5 years at JPMorgan Chase</strong> building production systems at scale, and now split my time between <strong>startup work</strong> and running <strong><em>Denkore Group LLC</em></strong>, an Eastern Shore-based software development company serving businesses across Maryland and Delaware.",
+      about_bio_p2: "What separates me from the typical contractor isn't just the code I write — it's the <strong>business context</strong> I bring to every decision. I speak the language of founders, investors, and local business owners equally well.",
+
+      // Contact Section
+      contact_eyebrow: 'Contact',
+      contact_title_start: "Let's Build",
+      contact_title_end: 'Something Great.',
+      contact_subtitle: "Whether you're a founder, a startup, or a Sussex County business looking for a real tech ally — I'm here and I respond within 24 hours.",
+
+      // Form Labels
+      form_first_name: 'First Name',
+      form_last_name: 'Last Name',
+      form_email: 'Email',
+      form_service_label: "I'm looking for…",
+      form_message: 'Message',
+      form_submit: 'Send Message'
+    },
+    es: {
+      // Navegación
+      nav_about: 'Acerca de',
+      nav_work: 'Proyectos',
+      nav_experience: 'Experiencia',
+      nav_stack: 'Stack',
+      nav_local: 'Local',
+      nav_cta: 'Hablemos',
+
+      // Hero Section
+      hero_status: 'Disponible para nuevos proyectos',
+      hero_title_line2: 'Pionero.',
+      hero_title_line3: 'Transformando la complejidad en claridad.',
+      hero_subtitle: 'Ingeniero fullstack y CTO fraccionario entrenado en empresas. 5 años en JPMorgan Chase construyendo sistemas a escala, ahora ayudando a startups a moverse rápido y negocios de Eastern Shore a competir. Ingeniería nivel JPMC, velocidad startup.',
+
+      // Sección Clientes
+      clients_eyebrow: 'Con la Confianza de',
+      clients_title_start: 'De la Empresa a',
+      clients_title_gradient: 'Negocios Locales',
+      clients_subtitle: '5 años en JPMorgan Chase construyendo sistemas financieros de producción — ahora aplicando esa experiencia a startups y la comunidad local de Sussex County.',
+
+      enterprise_title: 'Sistemas de Producción Empresarial',
+      enterprise_desc: '5 años en JPMorgan Chase construyendo sistemas de producción que nunca fallan. Arquitectura distribuida, seguridad rigurosa, código que sirve millones diariamente — ahora disponible para su negocio.',
+
+      startup_title: 'Velocidad Startup',
+      startup_desc: 'He lanzado múltiples startups desde el concepto hasta MVP de producción en menos de 12 semanas. Velocidad real, cero atajos — el tipo de rapidez que mantiene felices a los inversores y comprometidos a los usuarios.',
+
+      local_title: 'Eastern Shore Local',
+      local_desc: 'Ayudando a negocios de Eastern Shore a competir con sitios web de nivel empresarial, sistemas de reservas y comercio electrónico. Calidad de gran empresa, precios locales, soporte real.',
+
+      // Sección Acerca de
+      about_eyebrow: 'Acerca de',
+      about_title_start: 'El ingeniero que',
+      about_title_gradient: 'piensa como un fundador.',
+      about_bio_p1: "Soy David Clark — un <strong>ingeniero full-stack y CTO fraccionario basado en la Costa Este de Delaware</strong>. Comencé en programas de ingeniería locales, pasé <strong>5 años en JPMorgan Chase</strong> construyendo sistemas de producción a escala, y ahora divido mi tiempo entre <strong>trabajo con startups</strong> y dirigir <strong><em>Denkore Group LLC</em></strong>, una empresa de desarrollo de software basada en Eastern Shore que sirve a negocios en Maryland y Delaware.",
+      about_bio_p2: "Lo que me separa del contratista típico no es solo el código que escribo — es el <strong>contexto empresarial</strong> que traigo a cada decisión. Hablo el lenguaje de fundadores, inversores y dueños de negocios locales por igual.",
+
+      // Sección Contacto
+      contact_eyebrow: 'Contacto',
+      contact_title_start: 'Construyamos',
+      contact_title_end: 'Algo Grandioso.',
+      contact_subtitle: 'Ya sea fundador, startup o un negocio de Sussex County buscando un aliado tecnológico real — estoy aquí y respondo dentro de 24 horas.',
+
+      // Etiquetas del Formulario
+      form_first_name: 'Nombre',
+      form_last_name: 'Apellido',
+      form_email: 'Correo Electrónico',
+      form_service_label: 'Estoy buscando…',
+      form_message: 'Mensaje',
+      form_submit: 'Enviar Mensaje'
+    }
+  };
+
+  // Language state
+  let currentLang = localStorage.getItem('preferredLanguage') || 'en';
+
+  // Update HTML lang attribute
+  function updateHtmlLang(lang) {
+    document.documentElement.setAttribute('lang', lang);
+  }
+
+  // Translate page
+  function translatePage(lang) {
+    currentLang = lang;
+    const t = translations[lang];
+
+    // Update all elements with data-translate attribute
+    document.querySelectorAll('[data-translate]').forEach(el => {
+      const key = el.getAttribute('data-translate');
+      if (t[key]) {
+        el.innerHTML = t[key];
+      }
+    });
+
+    // Update language toggle active state
+    document.querySelectorAll('.lang-option').forEach(opt => {
+      if (opt.getAttribute('data-lang') === lang) {
+        opt.classList.remove('inactive');
+      } else {
+        opt.classList.add('inactive');
+      }
+    });
+
+    // Update HTML lang attribute
+    updateHtmlLang(lang);
+
+    // Save preference
+    localStorage.setItem('preferredLanguage', lang);
+  }
+
+  // Language toggle click handler
+  document.getElementById('langToggle').addEventListener('click', () => {
+    const newLang = currentLang === 'en' ? 'es' : 'en';
+    translatePage(newLang);
+  });
+
+  // Initialize with saved language
+  updateHtmlLang(currentLang);
+  if (currentLang === 'es') {
+    translatePage('es');
+  } else {
+    // Set initial inactive state
+    document.querySelector('.lang-option[data-lang="es"]').classList.add('inactive');
+  }
+
   </script>
 </body>
 
