@@ -2385,13 +2385,14 @@
         <li><a href="#stack" data-translate="nav_stack">Stack</a></li>
         <li><a href="#local" data-translate="nav_local">Local</a></li>
       </ul>
-      <button class="lang-toggle" id="langToggle" aria-label="Change language">
+      <!-- Language toggle disabled for production -->
+      <!-- <button class="lang-toggle" id="langToggle" aria-label="Change language">
         <span class="lang-icon">🌐</span>
         <span class="lang-option" data-lang="en">EN</span>
         <span class="lang-separator">|</span>
         <span class="lang-option" data-lang="es">ES</span>
-      </button>
-      <a href="#contact" class="nav-btn modal-trigger" data-translate="nav_cta">Let's Talk</a>
+      </button> -->
+      <a href="#contact" class="nav-btn modal-trigger">Let's Talk</a>
       <button class="hamburger" id="hamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
@@ -2399,12 +2400,12 @@
   </nav>
 
   <nav class="mobile-menu" id="mobileMenu">
-    <a href="#about" onclick="closeMob()">About</a>
-    <a href="#portfolio" onclick="closeMob()">Work</a>
-    <a href="#experience" onclick="closeMob()">Experience</a>
-    <a href="#stack" onclick="closeMob()">Stack</a>
-    <a href="#local" onclick="closeMob()">Local Services</a>
-    <a href="#contact" class="modal-trigger" onclick="closeMob()">Let's Talk</a>
+    <a href="#about" onclick="closeMob()" data-translate="nav_about">About</a>
+    <a href="#portfolio" onclick="closeMob()" data-translate="nav_work">Work</a>
+    <a href="#experience" onclick="closeMob()" data-translate="nav_experience">Experience</a>
+    <a href="#stack" onclick="closeMob()" data-translate="nav_stack">Stack</a>
+    <a href="#local" onclick="closeMob()" data-translate="nav_local">Local</a>
+    <a href="#contact" class="modal-trigger" onclick="closeMob()" data-translate="nav_cta">Let's Talk</a>
   </nav>
 
   <!-- HERO -->
@@ -2418,16 +2419,14 @@
     <div class="hero-inner">
       <div class="status-pill">
         <span class="status-dot"></span>
-        Available for new engagements
+        <span data-translate="hero_status">Available for new engagements</span>
       </div>
       <h1 class="hero-h1">
-        Technical <span class="gradient-text">Pioneer.</span><br>
-        Turning complexity into clarity.
+        Technical <span class="gradient-text" data-translate="hero_title_line2">Pioneer.</span><br>
+        <span data-translate="hero_title_line3">Turning complexity into clarity.</span>
       </h1>
-      <p class="hero-sub">
-        Enterprise-trained fullstack engineer &amp; fractional CTO. 5 years at JPMorgan Chase building systems at scale,
-        now helping startups move fast and Eastern Shore businesses compete. enterprise level engineering, startup
-        velocity.
+      <p class="hero-sub" data-translate="hero_subtitle">
+        I build software for businesses that want to move fast and compete. Enterprise-trained at a major bank, now serving startups and Eastern Shore companies. Bank-grade reliability, startup speed.
       </p>
       <div class="hero-terminal">
         <div class="term-bar">
@@ -2470,32 +2469,28 @@
   <section id="clients">
     <div class="eyebrow reveal">Trusted By</div>
     <h2 class="section-title reveal">From Enterprise to <span class="gradient-text">Main Street</span></h2>
-    <p class="section-body reveal">5 years at JPMorgan Chase building production financial systems — now applying that
-      expertise to startups and the local Sussex County community.</p>
+    <p class="section-body reveal">5 years building production financial systems at enterprise scale — now applying that expertise to startups and the local Sussex County community.</p>
 
     <div class="highlights-grid">
       <div class="highlight reveal">
         <div class="hl-icon">🏦</div>
         <div class="hl-text">
           <h4>Enterprise Production Systems</h4>
-          <p>5 years at JPMorgan Chase building production systems that never go down. Distributed architecture,
-            rigorous security, code that serves millions daily — now available to your business.</p>
+          <p>5 years building financial systems at enterprise scale. Systems that handle millions of transactions daily and never go down. That same reliability — now available to your business.</p>
         </div>
       </div>
       <div class="highlight reveal d1">
         <div class="hl-icon">🚀</div>
         <div class="hl-text">
           <h4>Startup Velocity</h4>
-          <p>I've launched multiple startups from concept to production MVP in under 12 weeks. Real velocity, zero
-            corners cut — the kind of speed that keeps investors happy and users engaged.</p>
+          <p>Three MVPs launched in under 12 weeks each. All still running. 150+ paying customers within 30 days of launch. Speed without shortcuts.</p>
         </div>
       </div>
       <div class="highlight reveal d2">
         <div class="hl-icon">🏪</div>
         <div class="hl-text">
           <h4>Eastern Shore Local</h4>
-          <p>Helping Eastern Shore businesses compete with enterprise-grade websites, booking systems, and e-commerce.
-            Big-company quality, Shore pricing, real local support.</p>
+          <p>Helping Eastern Shore businesses compete and win online. Professional websites that convert, custom systems that scale, and a real person who picks up when you call.</p>
         </div>
       </div>
     </div>
@@ -2523,13 +2518,9 @@
           <span class="id-tag">Remote Friendly</span>
         </div>
         <p class="about-bio reveal d2">I'm David Clark — a <strong>full-stack engineer and fractional CTO based on
-            Delaware's Eastern Shore</strong>. I started in local engineering programs, spent <strong>5 years at
-            JPMorgan Chase</strong> building production systems at scale, and now split my time between <strong>startup
-            work</strong> and running <strong><em>Denkore Group LLC</em></strong>, an Eastern Shore-based software
-          development company serving businesses across Maryland and Delaware.</p>
-        <p class="about-bio reveal d2">What separates me from the typical contractor isn't just the code I write — it's
-          the <strong>business context</strong> I bring to every decision. I speak the language of founders, investors,
-          and local business owners equally well.</p>
+            Delaware's Eastern Shore</strong>. I started in local engineering programs here in Sussex County, spent <strong>5 years at a major bank</strong> building systems that move money for millions of people daily, and now split my time between <strong>startup
+            work</strong> and running <strong><em>Denkore Group LLC</em></strong> — an Eastern Shore software company serving businesses across Maryland and Delaware.</p>
+        <p class="about-bio reveal d2">What separates me? I ask about your revenue model, your bottlenecks, and what keeps you up at night — not just your tech stack. I speak founder, investor, and 'local business owner with zero tech background' equally well.</p>
         <div class="timeline reveal d3">
           <div class="tli">
             <div class="tl-date">Middle &amp; High School</div>
@@ -2560,23 +2551,19 @@
       <div class="about-pillars reveal d1">
         <div class="pillar">
           <h4>⬡ Enterprise-Grade Standards</h4>
-          <p>Five years at JPMC means production systems, rigorous code review, and security-first engineering are
-            second nature — not something you have to ask for.</p>
+          <p>Five years building financial systems means your site won't go down at 2am, your data won't leak, and your code won't break. That's baseline — not an upsell.</p>
         </div>
         <div class="pillar">
           <h4>▲ Bias for Shipping</h4>
-          <p>MVPs in weeks, not months. Iterative delivery that gets your product into users' hands and keeps momentum
-            high — whether you're a startup or a local business.</p>
+          <p>MVPs in weeks, not months. Get your product into users' hands fast and keep momentum high. Speed matters — whether you're raising your seed round or opening your second location.</p>
         </div>
         <div class="pillar">
           <h4>◈ Local Roots, Broad Reach</h4>
-          <p>Based on the Shore, working with businesses across the region and beyond. Big-company depth without
-            big-agency detachment.</p>
+          <p>Based in Sussex County, working with businesses from Rehoboth to Baltimore. Big-company depth, small-town access. I answer texts.</p>
         </div>
         <div class="pillar">
           <h4>◎ Founder Mindset</h4>
-          <p>I think about runway, user adoption, and business outcomes in every decision — not just the technical
-            elegance of the solution.</p>
+          <p>Every technical decision gets the business test: Does this make money? Does this save time? Does this move the needle? Code is the tool, not the goal.</p>
         </div>
       </div>
     </div>
@@ -2588,15 +2575,14 @@
       <div class="lcta-hero reveal">
         <div class="lcta-pill">📍 Sussex County &amp; Beyond</div>
         <h2>Running a local business?<br>I'm your tech guy.</h2>
-        <p>Whether you need a website, a booking system, or someone who can explain what your vendor is charging you for
-          — I'm a real person from the Shore, and I pick up the phone.</p>
+        <p>Building websites, custom tools, and solving tech problems for Eastern Shore businesses. Enterprise-quality work from someone you can actually reach — I'm based here, and I pick up the phone.</p>
         <a href="#local" class="btn btn-orange">See What I Can Do →</a>
       </div>
       <div class="lcta-cards reveal d1">
         <div class="lcc"><span class="lcc-icon">🌐</span>
           <div>
             <div class="lcc-title">Need a website?</div>
-            <div class="lcc-desc">Fast, mobile-ready, and shows up on Google.</div>
+            <div class="lcc-desc">Professional sites that show up on Google and convert visitors into customers.</div>
             <div class="lcc-tags"><span class="lcc-tag">Custom Sites</span><span class="lcc-tag">Local SEO</span></div>
           </div>
         </div>
@@ -2610,21 +2596,21 @@
         <div class="lcc"><span class="lcc-icon">🛒</span>
           <div>
             <div class="lcc-title">Want to sell online?</div>
-            <div class="lcc-desc">Simple checkout to full store — your call.</div>
+            <div class="lcc-desc">Simple checkout or full e-commerce platform — built to match your business model.</div>
             <div class="lcc-tags"><span class="lcc-tag">E-Commerce</span><span class="lcc-tag">Stripe</span></div>
           </div>
         </div>
         <div class="lcc"><span class="lcc-icon">🤝</span>
           <div>
             <div class="lcc-title">Want a tech partner?</div>
-            <div class="lcc-desc">CTO on speed dial, without the salary.</div>
+            <div class="lcc-desc">Technical expertise on demand — advising, building, and keeping your tech running smoothly.</div>
             <div class="lcc-tags"><span class="lcc-tag">Advisory</span><span class="lcc-tag">Support</span></div>
           </div>
         </div>
         <div class="lcc"><span class="lcc-icon">📣</span>
           <div>
             <div class="lcc-title">Get more customers?</div>
-            <div class="lcc-desc">Sites built to convert visitors into calls.</div>
+            <div class="lcc-desc">Sites engineered to turn traffic into revenue — more calls, more bookings, better ROI.</div>
             <div class="lcc-tags"><span class="lcc-tag">Lead Capture</span><span class="lcc-tag">Analytics</span></div>
           </div>
         </div>
@@ -2681,8 +2667,7 @@
         <div class="port-ghost">03</div>
         <div class="port-type">Startup · MVP Build</div>
         <div class="port-h3">Analytics Platform MVP</div>
-        <p>11 weeks from whiteboard to production for a seed-stage startup. Real-time data pipelines, custom dashboards,
-          self-serve onboarding. Launched with 50+ customers — momentum from day one.</p>
+        <p>11 weeks from whiteboard to 50 paying customers. Customers could sign up and see their data instantly — no training needed. Still running 2 years later.</p>
         <div class="outcomes">
           <div>
             <div class="oc-n">11wk</div>
@@ -2706,8 +2691,7 @@
         <span class="loc-badge">📍 Local Client</span>
         <div class="port-type">Service Business · Sussex County</div>
         <div class="port-h3">Small Business Web Presence</div>
-        <p>Website and Google Business setup for a local service provider — got them ranking on page 1 and competing
-          with larger regional players. Real leads, real ROI.</p>
+        <p>Got them ranking on Google's first page within 8 weeks. Inbound calls tripled. Now competing with companies 10x their size.</p>
         <div class="outcomes">
           <div>
             <div class="oc-n">1st</div>
@@ -2799,7 +2783,7 @@
   <section id="stack">
     <div class="eyebrow reveal">Tech Stack</div>
     <h2 class="section-title reveal">Tools of the Trade.</h2>
-    <p class="section-body reveal">Battle-tested at enterprise scale at JPMC and in production every day since.</p>
+    <p class="section-body reveal">Battle-tested at enterprise scale and in production every day since. The same tools that power billion-dollar companies.</p>
     <div class="stack-cats reveal">
       <div class="stack-cat">
         <div class="sc-header"><span class="sc-dot"></span>Frontend</div>
@@ -2852,41 +2836,35 @@
   <section id="local">
     <div class="eyebrow warm reveal">Local Partnerships</div>
     <h2 class="section-title reveal">Your Shore-based tech partner.</h2>
-    <p class="section-body reveal">I grew up here, I work here. I help local businesses compete with technology — no
-      big-agency price tag, no runaround.</p>
+    <p class="section-body reveal">I grew up here, I work here. I help local businesses compete and win with technology — professional quality, personal service, no runaround.</p>
     <div class="local-grid">
       <div class="local-card reveal"><span class="local-icon">🌐</span>
         <h3>Get Online &amp; Get Found</h3>
-        <p>A fast, mobile-ready site that makes a great first impression and shows up when people Google you. First site
-          or a long-overdue refresh.</p>
+        <p>When people Google what you do locally, you show up on page 1. When they visit your site, they call. Professional, mobile-ready, and built to convert visitors into customers.</p>
         <div class="ltag-row"><span class="ltag">Custom Websites</span><span class="ltag">Mobile-First</span><span
             class="ltag">Local SEO</span><span class="ltag">Google Business</span></div>
       </div>
       <div class="local-card reveal d1"><span class="local-icon">🛒</span>
         <h3>Sell Online</h3>
-        <p>Simple Stripe checkout to full product catalog — e-commerce that works for your business. Great for local
-          shops, makers, and service providers.</p>
+        <p>From simple checkout to full online store — e-commerce that matches how your business actually works. Accept payments, manage inventory, and grow without platform limitations.</p>
         <div class="ltag-row"><span class="ltag">Online Store</span><span class="ltag">Stripe Payments</span><span
             class="ltag">Inventory</span></div>
       </div>
       <div class="local-card reveal d2"><span class="local-icon">🔧</span>
         <h3>Fix What's Broken</h3>
-        <p>Slow site, clunky booking system, tools that don't talk to each other — I come in, find the problem, and fix
-          it. No jargon, no upsell.</p>
+        <p>Slow site? Clunky booking system? Tools that don't talk to each other? I diagnose the real problem, explain it clearly, and fix it right — no jargon, no runaround.</p>
         <div class="ltag-row"><span class="ltag">Booking Systems</span><span class="ltag">POS Integrations</span><span
             class="ltag">Automation</span></div>
       </div>
       <div class="local-card reveal"><span class="local-icon">📣</span>
         <h3>Get More Customers</h3>
-        <p>Your website should work while you sleep. Clear calls to action, fast load times, the right structure to turn
-          visitors into calls and bookings.</p>
+        <p>Your website should work while you're sleeping. Built to turn visitors into calls, browsers into bookings, and traffic into revenue. Clear messaging, fast performance, smart conversion.</p>
         <div class="ltag-row"><span class="ltag">Lead Capture</span><span class="ltag">Contact Forms</span><span
             class="ltag">Analytics</span></div>
       </div>
       <div class="local-card reveal d1"><span class="local-icon">🤝</span>
         <h3>Ongoing Tech Partner</h3>
-        <p>CTO on speed dial — without the salary. Your go-to for all things tech: advising on tools, managing vendors,
-          keeping things running month to month.</p>
+        <p>A technical expert on speed dial — advising on tools, evaluating vendors, and keeping your systems running smoothly. Monthly support without the overhead of a full-time hire.</p>
         <div class="ltag-row"><span class="ltag">Tech Advisory</span><span class="ltag">Vendor Mgmt</span><span
             class="ltag">Monthly Support</span></div>
       </div>
@@ -2937,15 +2915,15 @@
           <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 
           <div class="form-row">
-            <div class="form-group"><label>First Name</label><input type="text" name="firstName" placeholder="David"
+            <div class="form-group"><label data-translate="form_first_name">First Name</label><input type="text" name="firstName" placeholder="David"
                 required></div>
-            <div class="form-group"><label>Last Name</label><input type="text" name="lastName" placeholder="Clark"
+            <div class="form-group"><label data-translate="form_last_name">Last Name</label><input type="text" name="lastName" placeholder="Clark"
                 required></div>
           </div>
-          <div class="form-group"><label>Email</label><input type="email" name="email"
+          <div class="form-group"><label data-translate="form_email">Email</label><input type="email" name="email"
               placeholder="hello@yourcompany.com" required></div>
           <div class="form-group">
-            <label>I'm looking for…</label>
+            <label data-translate="form_service_label">I'm looking for…</label>
             <select name="service" required>
               <option value="" disabled selected>Select a service…</option>
               <optgroup label="For Businesses &amp; Startups">
@@ -2964,9 +2942,9 @@
               <option>Other / Not Sure Yet</option>
             </select>
           </div>
-          <div class="form-group"><label>Message</label><textarea name="message"
+          <div class="form-group"><label data-translate="form_message">Message</label><textarea name="message"
               placeholder="Tell me about your project or problem — no jargon required." required></textarea></div>
-          <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
+          <button type="submit" class="submit-btn" id="submitBtn" data-translate="form_submit">Send Message</button>
         </form>
       </div>
     </div>
@@ -3070,15 +3048,15 @@
           <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 
           <div class="form-row">
-            <div class="form-group"><label>First Name</label><input type="text" name="firstName" placeholder="David"
+            <div class="form-group"><label data-translate="form_first_name">First Name</label><input type="text" name="firstName" placeholder="David"
                 required></div>
-            <div class="form-group"><label>Last Name</label><input type="text" name="lastName" placeholder="Clark"
+            <div class="form-group"><label data-translate="form_last_name">Last Name</label><input type="text" name="lastName" placeholder="Clark"
                 required></div>
           </div>
-          <div class="form-group"><label>Email</label><input type="email" name="email"
+          <div class="form-group"><label data-translate="form_email">Email</label><input type="email" name="email"
               placeholder="hello@yourcompany.com" required></div>
           <div class="form-group">
-            <label>I'm looking for…</label>
+            <label data-translate="form_service_label">I'm looking for…</label>
             <select name="service" required>
               <option value="" disabled selected>Select a service…</option>
               <optgroup label="For Businesses &amp; Startups">
@@ -3097,9 +3075,9 @@
               <option>Other / Not Sure Yet</option>
             </select>
           </div>
-          <div class="form-group"><label>Message</label><textarea name="message"
+          <div class="form-group"><label data-translate="form_message">Message</label><textarea name="message"
               placeholder="Tell me about your project or problem — no jargon required." required></textarea></div>
-          <button type="submit" class="submit-btn" id="modalSubmitBtn">Send Message</button>
+          <button type="submit" class="submit-btn" id="modalSubmitBtn" data-translate="form_submit">Send Message</button>
         </form>
       </div>
     </div>
@@ -3518,8 +3496,9 @@
     }
 
   // ============================================================
-  // BILINGUAL LANGUAGE SYSTEM
+  // BILINGUAL LANGUAGE SYSTEM - DISABLED FOR PRODUCTION
   // ============================================================
+  /* LANGUAGE SYSTEM DISABLED - Uncomment to re-enable
   const translations = {
     en: {
       // Navigation
@@ -3676,6 +3655,7 @@
     // Set initial inactive state
     document.querySelector('.lang-option[data-lang="es"]').classList.add('inactive');
   }
+  */ // END LANGUAGE SYSTEM
 
   </script>
 </body>
