@@ -219,6 +219,57 @@
 })();
 
 /* ============================================================
+   FLOATING ACTION BUTTON (FAB)
+   ============================================================ */
+(function () {
+  const fab = document.getElementById('fabButton');
+  const hero = document.getElementById('home');
+  const contactSect = document.getElementById('contact');
+  const modal = document.getElementById('contactModal');
+
+  if (!fab || !hero) return;
+
+  function updateFABVisibility() {
+    const heroBottom = hero.offsetTop + hero.offsetHeight;
+    const scrollPos = window.scrollY + window.innerHeight;
+
+    // Show FAB after hero section
+    let shouldShow = window.scrollY > heroBottom - 200;
+
+    // Hide when contact section is visible (if it exists)
+    if (contactSect) {
+      const contactTop = contactSect.offsetTop;
+      if (scrollPos >= contactTop + 200) {
+        shouldShow = false;
+      }
+    }
+
+    if (shouldShow) {
+      fab.classList.add('visible');
+      // Add pulse animation after 5 seconds of being visible
+      setTimeout(() => {
+        if (fab.classList.contains('visible')) fab.classList.add('pulse');
+      }, 5000);
+    } else {
+      fab.classList.remove('visible', 'pulse');
+    }
+  }
+
+  // FAB click opens modal
+  fab.addEventListener('click', () => {
+    if (modal) {
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    fab.classList.remove('pulse'); // Stop pulsing once clicked
+  });
+
+  // Update FAB on scroll
+  window.addEventListener('scroll', updateFABVisibility, { passive: true });
+  updateFABVisibility(); // Initial check
+})();
+
+/* ============================================================
    SCROLL-TRIGGERED ANIMATIONS
    ============================================================ */
 (function () {

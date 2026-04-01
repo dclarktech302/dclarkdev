@@ -1280,6 +1280,83 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 /* ============================================================
+   FLOATING ACTION BUTTON (FAB)
+   ============================================================ */
+.fab {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--grad-a), var(--grad-b));
+  border: none;
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 850;
+  opacity: 0;
+  transform: scale(0);
+  transition: all .3s ease;
+}
+
+.fab.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 32px rgba(139, 92, 246, 0.5), 0 0 40px rgba(139, 92, 246, 0.3);
+}
+
+.fab:active {
+  transform: scale(0.95);
+}
+
+.fab.pulse {
+  animation: fabPulse 3s ease-in-out infinite;
+}
+
+.fab-tooltip {
+  position: absolute;
+  right: 75px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s;
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -.2px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.fab:hover .fab-tooltip {
+  opacity: 1;
+}
+
+@keyframes fabPulse {
+  0%, 100% {
+    box-shadow: 0 8px 24px rgba(139, 92, 246, 0.4);
+  }
+  50% {
+    box-shadow: 0 8px 32px rgba(139, 92, 246, 0.6), 0 0 0 10px rgba(139, 92, 246, 0.2);
+  }
+}
+
+/* ============================================================
    CONTACT MODAL
    ============================================================ */
 .modal-overlay {
