@@ -2,6 +2,7 @@
 Thumbs.db
 *.log
 .vercel
+node_modules
 
 # Development HTML files - not for production
 dclarkdev-merged.html
