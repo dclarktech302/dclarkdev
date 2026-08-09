@@ -1,38 +1,38 @@
-name: Deploy to S3
+# name: Deploy to S3
 
-on:
-  push:
-    branches: [main]
+# on:
+#   push:
+#     branches: [main]
 
-permissions:
-  id-token: write
-  contents: read
+# permissions:
+#   id-token: write
+#   contents: read
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Verify correct repo
-        run: |
-          if [ "${{ github.repository }}" != "denkoregroup/dclarkdev" ]; then
-            echo "Refusing to deploy — wrong repo: ${{ github.repository }}"
-            exit 1
-          fi
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Verify correct repo
+#         run: |
+#           if [ "${{ github.repository }}" != "denkoregroup/dclarkdev" ]; then
+#             echo "Refusing to deploy — wrong repo: ${{ github.repository }}"
+#             exit 1
+#           fi
 
-      - uses: actions/checkout@v4
+#       - uses: actions/checkout@v4
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          role-to-assume: arn:aws:iam::796973498652:role/dclarkdev-gha-deploy
-          aws-region: us-east-1
+#       - name: Configure AWS credentials
+#         uses: aws-actions/configure-aws-credentials@v4
+#         with:
+#           role-to-assume: arn:aws:iam::796973498652:role/dclarkdev-gha-deploy
+#           aws-region: us-east-1
 
-      - name: Sync to S3
-        run: |
-          aws s3 sync . s3://dclarkdev \
-            --delete \
-            --exclude ".git/*" \
-            --exclude ".github/*"
+#       - name: Sync to S3
+#         run: |
+#           aws s3 sync . s3://dclarkdev \
+#             --delete \
+#             --exclude ".git/*" \
+#             --exclude ".github/*"
 
-      - name: Invalidate CloudFront cache
-        run: aws cloudfront create-invalidation --distribution-id E2GQ8VCB86SN1X --paths "/*"
+#       - name: Invalidate CloudFront cache
+#         run: aws cloudfront create-invalidation --distribution-id E2GQ8VCB86SN1X --paths "/*"
