@@ -40,3 +40,18 @@ resource "aws_s3_bucket_public_access_block" "dclarkdev-static_access" {
 
 #   depends_on = [ aws_s3_bucket_public_access_block.dclarkdev-static_access ]
 # }
+
+resource "aws_acm_certificate" "dclarkdev" {
+  domain_name = "dclarkdev.com"
+  validation_method = "DNS"
+
+  subject_alternative_names = ["www.dclarkdev.com"]
+
+  tags = {
+    Name = "dclarkdev.com SSL cert"
+  }
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
