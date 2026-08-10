@@ -56,13 +56,13 @@ resource "aws_acm_certificate" "dclarkdev" {
   }
 }
 
-data "aws_route_53_zone" "domain_zone" {
+data "aws_route53_zone" "domain_zone" {
   name = "dclarkdev.com"
 }
 
 resource "aws_route53_record" "dclarkdev_cert_validation" {
   for_each = {
-    for dvo in aws_acm_certificate.dclarkdev_cert_validation.domain_validation_options : dvo.domain_name
+    for dvo in aws_acm_certificate.dclarkdev.domain_validation_options : dvo.domain_name
     =>{
       name = dvo.resource_record_name
       record = dvo.resource_record_value
@@ -74,11 +74,11 @@ resource "aws_route53_record" "dclarkdev_cert_validation" {
   records = [each.value.record]
   ttl = 60
   type = each.value.type
-  zone_id = data.aws_route_53_zone.domain_zone.zone_id
+  zone_id = data.aws_route53_zone.domain_zone.zone_id
 }
 
-resource "aws_acm_certificate" "dclarkdev_cert_validation" {
-  certificate_arn = aws_aws_certificate.dclarkdev_cert.arn
+resource "aws_acm_certificate_validation" "dclarkdev_cert_validation" {
+  certificate_arn = aws_acm_certificate.dclarkdev.arn
   validation_record_fqdns = [for record in aws_route53_record.dclarkdev_cert_validation : record.fqdn]
 }
 
