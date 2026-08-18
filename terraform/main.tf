@@ -82,3 +82,136 @@ resource "aws_acm_certificate_validation" "dclarkdev_cert_validation" {
   validation_record_fqdns = [for record in aws_route53_record.dclarkdev_cert_validation : record.fqdn]
 }
 
+resource "aws_cloudfront_origin_access_control" "example" {
+  name                              = "oac-${aws_s3_bucket.dclarkdev_static.bucket}"
+  description                       = "OAC for oac-${aws_s3_bucket.dclarkdev_static.bucket}"
+  origin_access_control_origin_type = "s3"
+  signing_behavior                  = "always"
+  signing_protocol                  = "sigv4"
+}
+
+# See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
+data "aws_iam_policy_document" "origin_bucket_policy" {
+  statement {
+    sid    = "AllowCloudFrontServicePrincipalReadWrite"
+    effect = "Allow"
+
+    principals {
+      type        = "Service"
+      identifiers = ["cloudfront.amazonaws.com"]
+    }
+
+    actions = [
+      "s3:GetObject",
+      "s3:PutObject",
+    ]
+
+    resources = [
+      "${aws_s3_bucket.b.arn}/*",
+    ]
+
+    condition {
+      test     = "StringEquals"
+      variable = "AWS:SourceArn"
+      values   = [aws_cloudfront_distribution.s3_distribution.arn]
+    }
+  }
+}
+
+data "aws_acm_certificate" "my_domain" {
+  region   = "us-east-1"
+  domain   = "*.${local.my_domain}"
+  statuses = ["ISSUED"]
+}
+
+resource "aws_cloudfront_origin_access_control" "default" {
+  name                              = "default-oac"
+  origin_access_control_origin_type = "s3"
+  signing_behavior                  = "always"
+  signing_protocol                  = "sigv4"
+}
+
+resource "aws_cloudfront_distribution" "s3_distribution" {
+  origin {
+    domain_name              = aws_s3_bucket.dclarkdev_static.bucket_regional_domain_name
+    origin_access_control_id = aws_cloudfront_origin_access_control.default.id
+    origin_id                = "S3-${aws_s3_bucket.dclarkdev_static.bucket}"
+  }
+
+  enabled             = true
+  is_ipv6_enabled     = true
+  comment             = "CloudFront distro for ${aws_s3_bucket.dclarkdev_static.bucket}"
+  default_root_object = "index.html"
+
+  aliases = ["dclarkdev.com", "www.dclarkdev.com"]
+
+  default_cache_behavior {
+    allowed_methods  = ["GET", "HEAD"]
+    cached_methods   = ["GET", "HEAD"]
+    target_origin_id = "S3-${aws_s3_bucket.dclarkdev_static.bucket}"
+
+    viewer_protocol_policy = "redirect-to-https"
+    min_ttl                = 0
+    default_ttl            = 3600
+    max_ttl                = 86400
+  }
+
+  price_class = "PriceClass_200"
+
+  restrictions {
+    geo_restriction {
+      restriction_type = "none"
+    }
+  }
+
+  viewer_certificate {
+    acm_certificate_arn = data.aws_acm_certificate.dclarkdev_cert.arn
+    ssl_support_method  = "sni-only"
+  }
+
+  depends_on = { aws_acm_certificate_validation.dclarkdev_cert_validation }
+}
+
+resource "aws_s3_bucket_policy" "dclarkdev-static_policy" {
+  bucket = aws_s3_bucket.dclarkdev-static.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Principal = {
+          Service = "cloudfront.amazonaws.com"
+        }
+        Action = "s3:GetObject"
+        Resource = "${aws_s3_bucket.dclarkdev-static.arn}/*"
+        Condition = {
+          StringEquals = {
+            "AWS:SourceArn" = aws_cloudfront_distribution.s3_distribution.arn
+          }
+        }
+      }
+    ]
+  })
+
+  depends_on = [ aws_s3_bucket_public_access_block.dclarkdev-static_access ]
+}
+
+# Create Route53 records for the CloudFront distribution aliases
+data "aws_route53_zone" "my_domain" {
+  name = local.my_domain
+}
+
+resource "aws_route53_record" "cloudfront" {
+  for_each = aws_cloudfront_distribution.s3_distribution.aliases
+  zone_id  = data.aws_route53_zone.my_domain.zone_id
+  name     = each.value
+  type     = "A"
+
+  alias {
+    name                   = aws_cloudfront_distribution.s3_distribution.domain_name
+    zone_id                = aws_cloudfront_distribution.s3_distribution.hosted_zone_id
+    evaluate_target_health = false
+  }
+}
+
