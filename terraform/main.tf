@@ -59,6 +59,10 @@ resource "aws_cloudfront_origin_access_control" "dclarkdev_oac" {
   signing_protocol                  = "sigv4"
 }
 
+data "aws_cloudfront_cache_policy" "caching_optimized" {
+  name = "Managed-CachingOptimized"
+}
+
 resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
     domain_name              = aws_s3_bucket.dclarkdev-static.bucket_regional_domain_name
@@ -79,9 +83,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     target_origin_id = "S3-${aws_s3_bucket.dclarkdev-static.bucket}"
 
     viewer_protocol_policy = "redirect-to-https"
-    min_ttl                = 0
-    default_ttl            = 3600
-    max_ttl                = 86400
+    cache_policy_id        = data.aws_cloudfront_cache_policy.caching_optimized.id
   }
 
   price_class = "PriceClass_200"
