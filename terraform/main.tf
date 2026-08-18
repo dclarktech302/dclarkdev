@@ -169,7 +169,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     ssl_support_method  = "sni-only"
   }
 
-  depends_on = { aws_acm_certificate_validation.dclarkdev_cert_validation }
+  depends_on = [aws_acm_certificate_validation.dclarkdev_cert_validation]
 }
 
 resource "aws_s3_bucket_policy" "dclarkdev-static_policy" {
